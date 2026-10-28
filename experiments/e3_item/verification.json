@@ -1,0 +1,49 @@
+{
+  "tests": {
+    "tests_run": 84,
+    "failures": 0,
+    "errors": 0,
+    "successful": true,
+    "max_rss_mib": 88.609375,
+    "command": "PYTHONPATH=. .venv/bin/python -B tools/train_e3.py --test-suite",
+    "discovery": "unittest discover -s tests -p 'test_*.py'",
+    "fixture_redirect": "only existing ROOT/e1_tuning temporary paths -> experiments/e3_item; tests unchanged"
+  },
+  "artifact_check": {
+    "stdlib_imports": [
+      "json",
+      "math",
+      "re",
+      "zlib"
+    ],
+    "global_nonlocal_statements": 0,
+    "embedded_e2_weights_unchanged": true,
+    "zip_source_bytes_match": true,
+    "zip_members": [
+      "model.py",
+      "README.md"
+    ],
+    "model_sha256": "cd91dda61129858c120cb1233b1dc76e47f35f94c762fce5caf7ce83671b8bcf",
+    "zip_sha256": "df8c015af92a8bdbc424943b38585c01203c4970189ba721874da53e3184af3f",
+    "config": {
+      "shrinkage": 0.5,
+      "eta": 0.5,
+      "mode": "probability"
+    }
+  },
+  "build_command": "PYTHONPATH=. .venv/bin/python -B tools/build_zip.py submission_e3",
+  "zip_check_command": "TMPDIR=\"$PWD/experiments/e3_item\" python3 -I -B tools/official/check_submission_zip.py dist/submission_e3.zip",
+  "zip_check": "OK: dist/submission_e3.zip looks like a valid submission ZIP.",
+  "wall_clock_start_utc": "2026-10-18T23:34:48+00:00",
+  "wall_clock_end_utc": "2026-10-19T00:20:59.765557+00:00",
+  "total_wall_seconds": 2771.765557,
+  "within_50_minutes": true,
+  "maximum_observed_process_rss_mib": 782.859375,
+  "validated_full_confirmation_runs": 250,
+  "baseline_sources_unchanged": true,
+  "decomposition_identities_checked": true,
+  "selected_config_and_embedded_weights_checked": true,
+  "zip_source_still_matches": true,
+  "network_used": false,
+  "writes_scope": "only the user allowlist; bytecode suppressed; test/checker temporary files redirected into experiments/e3_item"
+}

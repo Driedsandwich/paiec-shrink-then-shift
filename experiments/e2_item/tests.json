@@ -1,0 +1,11 @@
+{
+  "tests_run": 67,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "elapsed_seconds": 2.1322842499939725,
+  "max_rss_mib": 87.40625,
+  "command": "PYTHONPATH=. .venv/bin/python -B tools/train_e2.py --test-suite",
+  "discovery": "unittest discover -s tests -p 'test_*.py'",
+  "temporary_write_redirect": "existing tests ROOT/e1_tuning destinations -> experiments/e2_item; no test logic altered"
+}

@@ -1,0 +1,10 @@
+{
+  "tests_run": 84,
+  "failures": 0,
+  "errors": 0,
+  "successful": true,
+  "max_rss_mib": 88.609375,
+  "command": "PYTHONPATH=. .venv/bin/python -B tools/train_e3.py --test-suite",
+  "discovery": "unittest discover -s tests -p 'test_*.py'",
+  "fixture_redirect": "only existing ROOT/e1_tuning temporary paths -> experiments/e3_item; tests unchanged"
+}

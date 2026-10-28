@@ -1,0 +1,5 @@
+{
+  "elapsed_seconds": 991.0130056249909,
+  "max_rss_mib": 424.140625,
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python -B experiments/e3_item/packed_driver.py"
+}

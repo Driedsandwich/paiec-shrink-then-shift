@@ -1,0 +1,3031 @@
+{
+  "summary": {
+    "alc_mean": 0.19393621636987035,
+    "alc_std": 0.017317021174783058,
+    "brier_by_budget": {
+      "0": {
+        "mean": 0.22503423822427857,
+        "std": 0.010736046414750584
+      },
+      "1": {
+        "mean": 0.20762344197364838,
+        "std": 0.02062903829937235
+      },
+      "3": {
+        "mean": 0.19485133054115078,
+        "std": 0.019947180773462116
+      },
+      "7": {
+        "mean": 0.18643672497992125,
+        "std": 0.0203715256539898
+      },
+      "15": {
+        "mean": 0.18001199779193303,
+        "std": 0.02014891376215983
+      },
+      "31": {
+        "mean": 0.1764809349011179,
+        "std": 0.018992322172052312
+      }
+    }
+  },
+  "conditions": {
+    "data": "../_data/mdb",
+    "seed": 1000,
+    "runs": 50,
+    "run_seed_rule": "seed + run_index (0-based)",
+    "pairs_strategy": "balanced",
+    "max_unique_subject_items": 1000,
+    "pair_selection": "seeded shuffle of eligible pairs before allocation",
+    "allocation_rule": "select up to floor(cap/80) pairs; start at 80, then round-robin to capacity",
+    "minimum_distinct_graded_items": 80,
+    "eligibility_before_cap": true,
+    "selected_pair_minimum_items": 80,
+    "acquisition_mode": "random",
+    "max_labels_per_pair": 31,
+    "budgets": [
+      0,
+      1,
+      3,
+      7,
+      15,
+      31
+    ],
+    "alc_weights": [
+      0.1,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.1
+    ],
+    "split": "holdout",
+    "holdout_fraction": 0.3,
+    "split_rule": "sha256(original benchmark_id) / 2**256 < holdout_fraction",
+    "release_years": [
+      "2025",
+      "2026"
+    ],
+    "benchmarks": "all",
+    "pair_order": "lexicographic (original benchmark_id, original subject_id)",
+    "synchronization": "advance every pair to checkpoint before any evaluation",
+    "odd_split": "floor(n/2) acquisition, ceil(n/2) evaluation",
+    "trial_selection": "one seeded uniform recorded row per acquisition item, fixed before hooks",
+    "ungraded_rows": "exclude; never treat missing outcomes as zero",
+    "exhaustion": "no forced reveals; report actual count and repeat evidence if exhausted",
+    "decomposition_cells": "item_id plus input (split by interactors if different)",
+    "prediction_cache": "distinct full input across all pairs, reset each checkpoint",
+    "runtime": "trusted in-process Python, no worker reset or timeout isolation",
+    "std_definition": "population standard deviation across run-level pair means (ddof=0)"
+  },
+  "runs": [
+    {
+      "seed": 1000,
+      "alc": 0.1759530742794504,
+      "brier_by_budget": {
+        "0": 0.23299430378122515,
+        "1": 0.22479429481677268,
+        "3": 0.16510163418681995,
+        "7": 0.15722369093365532,
+        "15": 0.14406861654807618,
+        "31": 0.14415996604263043
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.09697582900727296,
+          "shape_mismatch": 0.12196808717705299,
+          "empirical_fluctuation": 0.014050387596899224
+        },
+        "1": {
+          "level_shift": 0.088731970494216,
+          "shape_mismatch": 0.12201193672565745,
+          "empirical_fluctuation": 0.014050387596899224
+        },
+        "3": {
+          "level_shift": 0.029076750427369964,
+          "shape_mismatch": 0.12197449616255075,
+          "empirical_fluctuation": 0.014050387596899224
+        },
+        "7": {
+          "level_shift": 0.02116600396470796,
+          "shape_mismatch": 0.12200729937204814,
+          "empirical_fluctuation": 0.014050387596899224
+        },
+        "15": {
+          "level_shift": 0.00804711409137272,
+          "shape_mismatch": 0.12197111485980422,
+          "empirical_fluctuation": 0.014050387596899224
+        },
+        "31": {
+          "level_shift": 0.00813730407131624,
+          "shape_mismatch": 0.12197227437441495,
+          "empirical_fluctuation": 0.014050387596899224
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.03991568110339225,
+        "shape_mismatch": 0.12198700557915891,
+        "empirical_fluctuation": 0.014050387596899225
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1001,
+      "alc": 0.2073774342853752,
+      "brier_by_budget": {
+        "0": 0.22169242369662087,
+        "1": 0.21565030244101496,
+        "3": 0.21542344606913705,
+        "7": 0.21069498366414297,
+        "15": 0.18972985488307423,
+        "31": 0.18908474504239237
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04136027795125697,
+          "shape_mismatch": 0.13518291700016946,
+          "empirical_fluctuation": 0.04514922874519443
+        },
+        "1": {
+          "level_shift": 0.035324690979504865,
+          "shape_mismatch": 0.13517638271631566,
+          "empirical_fluctuation": 0.04514922874519443
+        },
+        "3": {
+          "level_shift": 0.035077701840069954,
+          "shape_mismatch": 0.13519651548387265,
+          "empirical_fluctuation": 0.04514922874519443
+        },
+        "7": {
+          "level_shift": 0.030286534064511417,
+          "shape_mismatch": 0.13525922085443712,
+          "empirical_fluctuation": 0.04514922874519443
+        },
+        "15": {
+          "level_shift": 0.009405512515334518,
+          "shape_mismatch": 0.13517511362254528,
+          "empirical_fluctuation": 0.04514922874519443
+        },
+        "31": {
+          "level_shift": 0.008763479609735196,
+          "shape_mismatch": 0.13517203668746275,
+          "empirical_fluctuation": 0.04514922874519443
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02703126363598337,
+        "shape_mismatch": 0.13519694190419737,
+        "empirical_fluctuation": 0.045149228745194434
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1002,
+      "alc": 0.20591008513806897,
+      "brier_by_budget": {
+        "0": 0.23363395306489462,
+        "1": 0.23329821034162912,
+        "3": 0.20242651793614908,
+        "7": 0.1980415128870829,
+        "15": 0.18853080060700259,
+        "31": 0.1808728147720675
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06061670197524653,
+          "shape_mismatch": 0.13817102093091793,
+          "empirical_fluctuation": 0.03484623015873016
+        },
+        "1": {
+          "level_shift": 0.060281349522869544,
+          "shape_mismatch": 0.1381706306600294,
+          "empirical_fluctuation": 0.03484623015873016
+        },
+        "3": {
+          "level_shift": 0.029411651857976416,
+          "shape_mismatch": 0.13816863591944248,
+          "empirical_fluctuation": 0.03484623015873016
+        },
+        "7": {
+          "level_shift": 0.02502759067331849,
+          "shape_mismatch": 0.13816769205503426,
+          "empirical_fluctuation": 0.03484623015873016
+        },
+        "15": {
+          "level_shift": 0.01550105187804676,
+          "shape_mismatch": 0.13818351857022568,
+          "empirical_fluctuation": 0.03484623015873016
+        },
+        "31": {
+          "level_shift": 0.007850110272200075,
+          "shape_mismatch": 0.13817647434113725,
+          "empirical_fluctuation": 0.03484623015873016
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.032891010011186904,
+        "shape_mismatch": 0.13817284496815188,
+        "empirical_fluctuation": 0.03484623015873016
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1003,
+      "alc": 0.18394462235656406,
+      "brier_by_budget": {
+        "0": 0.22781678084989132,
+        "1": 0.21152669336913663,
+        "3": 0.18593030560838766,
+        "7": 0.16728732092484364,
+        "15": 0.16209595218684522,
+        "31": 0.15794889853732277
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.0758622711783539,
+          "shape_mismatch": 0.1180812703148075,
+          "empirical_fluctuation": 0.03387323935672992
+        },
+        "1": {
+          "level_shift": 0.05958244917569137,
+          "shape_mismatch": 0.11807100483671534,
+          "empirical_fluctuation": 0.03387323935672992
+        },
+        "3": {
+          "level_shift": 0.03399239323024129,
+          "shape_mismatch": 0.11806467302141646,
+          "empirical_fluctuation": 0.03387323935672992
+        },
+        "7": {
+          "level_shift": 0.015335562156110942,
+          "shape_mismatch": 0.11807851941200279,
+          "empirical_fluctuation": 0.03387323935672992
+        },
+        "15": {
+          "level_shift": 0.010151543324543683,
+          "shape_mismatch": 0.11807116950557162,
+          "empirical_fluctuation": 0.03387323935672992
+        },
+        "31": {
+          "level_shift": 0.006010202553468252,
+          "shape_mismatch": 0.1180654566271246,
+          "empirical_fluctuation": 0.03387323935672992
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.03199963695049967,
+        "shape_mismatch": 0.11807174604933446,
+        "empirical_fluctuation": 0.03387323935672992
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1004,
+      "alc": 0.21373231222130035,
+      "brier_by_budget": {
+        "0": 0.2317939343959489,
+        "1": 0.21265072341711747,
+        "3": 0.2104548648434668,
+        "7": 0.2133164371118975,
+        "15": 0.21551328806150222,
+        "31": 0.20165856094908666
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.03742161661070883,
+          "shape_mismatch": 0.14087875466231647,
+          "empirical_fluctuation": 0.05349356312292359
+        },
+        "1": {
+          "level_shift": 0.018283078328052565,
+          "shape_mismatch": 0.14087408196614132,
+          "empirical_fluctuation": 0.05349356312292359
+        },
+        "3": {
+          "level_shift": 0.016088240561624584,
+          "shape_mismatch": 0.14087306115891862,
+          "empirical_fluctuation": 0.05349356312292359
+        },
+        "7": {
+          "level_shift": 0.01894155677157394,
+          "shape_mismatch": 0.14088131721739997,
+          "empirical_fluctuation": 0.05349356312292359
+        },
+        "15": {
+          "level_shift": 0.021134277725264484,
+          "shape_mismatch": 0.14088544721331414,
+          "empirical_fluctuation": 0.05349356312292359
+        },
+        "31": {
+          "level_shift": 0.007257929767002014,
+          "shape_mismatch": 0.14090706805916106,
+          "empirical_fluctuation": 0.05349356312292359
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.0193573853150742,
+        "shape_mismatch": 0.14088136378330257,
+        "empirical_fluctuation": 0.05349356312292359
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1005,
+      "alc": 0.188127547040277,
+      "brier_by_budget": {
+        "0": 0.22502304072019272,
+        "1": 0.1939210579250217,
+        "3": 0.18455479685846624,
+        "7": 0.18039713590391657,
+        "15": 0.17996369377533344,
+        "31": 0.17857906075710128
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.052967137133940315,
+          "shape_mismatch": 0.14266602263387143,
+          "empirical_fluctuation": 0.029389880952380952
+        },
+        "1": {
+          "level_shift": 0.02186288742497848,
+          "shape_mismatch": 0.14266828954766228,
+          "empirical_fluctuation": 0.029389880952380952
+        },
+        "3": {
+          "level_shift": 0.012493317719255085,
+          "shape_mismatch": 0.14267159818683017,
+          "empirical_fluctuation": 0.029389880952380952
+        },
+        "7": {
+          "level_shift": 0.008345403780779711,
+          "shape_mismatch": 0.14266185117075592,
+          "empirical_fluctuation": 0.029389880952380952
+        },
+        "15": {
+          "level_shift": 0.007903494796739345,
+          "shape_mismatch": 0.14267031802621316,
+          "empirical_fluctuation": 0.029389880952380952
+        },
+        "31": {
+          "level_shift": 0.0065244275747671394,
+          "shape_mismatch": 0.1426647522299532,
+          "empirical_fluctuation": 0.029389880952380952
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.01607017721522127,
+        "shape_mismatch": 0.14266748887267477,
+        "empirical_fluctuation": 0.029389880952380952
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1006,
+      "alc": 0.21193936993445103,
+      "brier_by_budget": {
+        "0": 0.22070995367226884,
+        "1": 0.21170838409629344,
+        "3": 0.2203313125721364,
+        "7": 0.21302015659346432,
+        "15": 0.2036782402365751,
+        "31": 0.20120755867530288
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.029278425843489133,
+          "shape_mismatch": 0.13939328829054015,
+          "empirical_fluctuation": 0.052038239538239536
+        },
+        "1": {
+          "level_shift": 0.020281259464530108,
+          "shape_mismatch": 0.1393888850935238,
+          "empirical_fluctuation": 0.052038239538239536
+        },
+        "3": {
+          "level_shift": 0.028911029696308592,
+          "shape_mismatch": 0.13938204333758827,
+          "empirical_fluctuation": 0.052038239538239536
+        },
+        "7": {
+          "level_shift": 0.021577593303564454,
+          "shape_mismatch": 0.13940432375166031,
+          "empirical_fluctuation": 0.052038239538239536
+        },
+        "15": {
+          "level_shift": 0.012232567299305866,
+          "shape_mismatch": 0.13940743339902972,
+          "empirical_fluctuation": 0.052038239538239536
+        },
+        "31": {
+          "level_shift": 0.009757746898578851,
+          "shape_mismatch": 0.1394115722384845,
+          "empirical_fluctuation": 0.052038239538239536
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.020504107226948603,
+        "shape_mismatch": 0.1393970231692629,
+        "empirical_fluctuation": 0.052038239538239536
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1007,
+      "alc": 0.19181974252768855,
+      "brier_by_budget": {
+        "0": 0.21222908512097327,
+        "1": 0.2043405809126033,
+        "3": 0.19486377583680592,
+        "7": 0.18178529271148675,
+        "15": 0.1813487506533412,
+        "31": 0.18129153992743782
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.03556364204613654,
+          "shape_mismatch": 0.1376857898146602,
+          "empirical_fluctuation": 0.038979653260176515
+        },
+        "1": {
+          "level_shift": 0.0276736732062913,
+          "shape_mismatch": 0.13768725444613547,
+          "empirical_fluctuation": 0.038979653260176515
+        },
+        "3": {
+          "level_shift": 0.01820374692913989,
+          "shape_mismatch": 0.1376803756474895,
+          "empirical_fluctuation": 0.038979653260176515
+        },
+        "7": {
+          "level_shift": 0.0051181561282059125,
+          "shape_mismatch": 0.13768748332310432,
+          "empirical_fluctuation": 0.038979653260176515
+        },
+        "15": {
+          "level_shift": 0.004675101994874669,
+          "shape_mismatch": 0.13769399539829,
+          "empirical_fluctuation": 0.038979653260176515
+        },
+        "31": {
+          "level_shift": 0.004626930260519208,
+          "shape_mismatch": 0.1376849564067421,
+          "empirical_fluctuation": 0.038979653260176515
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.01515319288236793,
+        "shape_mismatch": 0.1376868963851441,
+        "empirical_fluctuation": 0.03897965326017652
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1008,
+      "alc": 0.18887357346846023,
+      "brier_by_budget": {
+        "0": 0.2210011261850846,
+        "1": 0.2125704576712067,
+        "3": 0.1960197354187593,
+        "7": 0.17693488078629196,
+        "15": 0.16659749853091918,
+        "31": 0.16348946368516337
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06693141294883437,
+          "shape_mismatch": 0.12165854801258502,
+          "empirical_fluctuation": 0.032411165223665224
+        },
+        "1": {
+          "level_shift": 0.05849890200272236,
+          "shape_mismatch": 0.12166039044481912,
+          "empirical_fluctuation": 0.032411165223665224
+        },
+        "3": {
+          "level_shift": 0.0419523584346994,
+          "shape_mismatch": 0.12165621176039466,
+          "empirical_fluctuation": 0.032411165223665224
+        },
+        "7": {
+          "level_shift": 0.022866627448224045,
+          "shape_mismatch": 0.12165708811440268,
+          "empirical_fluctuation": 0.032411165223665224
+        },
+        "15": {
+          "level_shift": 0.012534333404657734,
+          "shape_mismatch": 0.1216519999025962,
+          "empirical_fluctuation": 0.032411165223665224
+        },
+        "31": {
+          "level_shift": 0.009428243698800074,
+          "shape_mismatch": 0.12165005476269809,
+          "empirical_fluctuation": 0.032411165223665224
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.034806409922824154,
+        "shape_mismatch": 0.12165599832197085,
+        "empirical_fluctuation": 0.032411165223665224
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1009,
+      "alc": 0.19941602064101766,
+      "brier_by_budget": {
+        "0": 0.22914280423507993,
+        "1": 0.20643281849049747,
+        "3": 0.2206983634561867,
+        "7": 0.18141355463320064,
+        "15": 0.18577207772847187,
+        "31": 0.1763837735583832
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06021365663214438,
+          "shape_mismatch": 0.12961863172991966,
+          "empirical_fluctuation": 0.03931051587301587
+        },
+        "1": {
+          "level_shift": 0.0375055815363547,
+          "shape_mismatch": 0.1296167210811269,
+          "empirical_fluctuation": 0.03931051587301587
+        },
+        "3": {
+          "level_shift": 0.051772794848910425,
+          "shape_mismatch": 0.1296150527342604,
+          "empirical_fluctuation": 0.03931051587301587
+        },
+        "7": {
+          "level_shift": 0.012484320406028529,
+          "shape_mismatch": 0.12961871835415623,
+          "empirical_fluctuation": 0.03931051587301587
+        },
+        "15": {
+          "level_shift": 0.016844806272206008,
+          "shape_mismatch": 0.12961675558325,
+          "empirical_fluctuation": 0.03931051587301587
+        },
+        "31": {
+          "level_shift": 0.007454357059335332,
+          "shape_mismatch": 0.129618900626032,
+          "empirical_fluctuation": 0.03931051587301587
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.030488301981847907,
+        "shape_mismatch": 0.12961720278615388,
+        "empirical_fluctuation": 0.03931051587301587
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1010,
+      "alc": 0.19193199633631827,
+      "brier_by_budget": {
+        "0": 0.24146682120024,
+        "1": 0.19831623596892542,
+        "3": 0.19672805663445425,
+        "7": 0.1845706473222081,
+        "15": 0.17477790496191126,
+        "31": 0.16906745238794457
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.07917187194925425,
+          "shape_mismatch": 0.11536283044386694,
+          "empirical_fluctuation": 0.046932118807118804
+        },
+        "1": {
+          "level_shift": 0.03600195534820844,
+          "shape_mismatch": 0.11538216181359819,
+          "empirical_fluctuation": 0.046932118807118804
+        },
+        "3": {
+          "level_shift": 0.034381284142351906,
+          "shape_mismatch": 0.11541465368498353,
+          "empirical_fluctuation": 0.046932118807118804
+        },
+        "7": {
+          "level_shift": 0.022272973640573256,
+          "shape_mismatch": 0.11536555487451604,
+          "empirical_fluctuation": 0.046932118807118804
+        },
+        "15": {
+          "level_shift": 0.012482567559777504,
+          "shape_mismatch": 0.11536321859501496,
+          "empirical_fluctuation": 0.046932118807118804
+        },
+        "31": {
+          "level_shift": 0.006768488842868887,
+          "shape_mismatch": 0.11536684473795689,
+          "empirical_fluctuation": 0.046932118807118804
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.029621792217394537,
+        "shape_mismatch": 0.11537808531180493,
+        "empirical_fluctuation": 0.04693211880711881
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1011,
+      "alc": 0.18515785176305505,
+      "brier_by_budget": {
+        "0": 0.22974280650761186,
+        "1": 0.19172571005582645,
+        "3": 0.18227498099956577,
+        "7": 0.1826231184916424,
+        "15": 0.17067551493896196,
+        "31": 0.16723706215094544
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06689413123274841,
+          "shape_mismatch": 0.1215540324177206,
+          "empirical_fluctuation": 0.041294642857142856
+        },
+        "1": {
+          "level_shift": 0.028864004952804972,
+          "shape_mismatch": 0.12156706224587861,
+          "empirical_fluctuation": 0.041294642857142856
+        },
+        "3": {
+          "level_shift": 0.019401175416944926,
+          "shape_mismatch": 0.121579162725478,
+          "empirical_fluctuation": 0.041294642857142856
+        },
+        "7": {
+          "level_shift": 0.019757194924391278,
+          "shape_mismatch": 0.12157128071010827,
+          "empirical_fluctuation": 0.041294642857142856
+        },
+        "15": {
+          "level_shift": 0.0078074820289582274,
+          "shape_mismatch": 0.12157339005286087,
+          "empirical_fluctuation": 0.041294642857142856
+        },
+        "31": {
+          "level_shift": 0.004347287105411672,
+          "shape_mismatch": 0.12159513218839091,
+          "empirical_fluctuation": 0.041294642857142856
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02229011329843589,
+        "shape_mismatch": 0.12157309560747631,
+        "empirical_fluctuation": 0.041294642857142856
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1012,
+      "alc": 0.21596405559199497,
+      "brier_by_budget": {
+        "0": 0.23277654895163033,
+        "1": 0.24692253210974008,
+        "3": 0.21327116311531488,
+        "7": 0.20363387807605576,
+        "15": 0.201106110100274,
+        "31": 0.19699664016554982
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.041834611564281636,
+          "shape_mismatch": 0.13436666780335818,
+          "empirical_fluctuation": 0.05657526958399051
+        },
+        "1": {
+          "level_shift": 0.055939079441975834,
+          "shape_mismatch": 0.13440818308377378,
+          "empirical_fluctuation": 0.05657526958399051
+        },
+        "3": {
+          "level_shift": 0.022318732032123607,
+          "shape_mismatch": 0.1343771614992008,
+          "empirical_fluctuation": 0.05657526958399051
+        },
+        "7": {
+          "level_shift": 0.01263531789689889,
+          "shape_mismatch": 0.13442329059516636,
+          "empirical_fluctuation": 0.05657526958399051
+        },
+        "15": {
+          "level_shift": 0.010133391735142305,
+          "shape_mismatch": 0.13439744878114115,
+          "empirical_fluctuation": 0.05657526958399051
+        },
+        "31": {
+          "level_shift": 0.00601441321161944,
+          "shape_mismatch": 0.13440695736993988,
+          "empirical_fluctuation": 0.05657526958399051
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.024990206698818237,
+        "shape_mismatch": 0.13439857930918622,
+        "empirical_fluctuation": 0.05657526958399051
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1013,
+      "alc": 0.1836833824073197,
+      "brier_by_budget": {
+        "0": 0.22621605567067152,
+        "1": 0.19912141624947807,
+        "3": 0.19220637171589064,
+        "7": 0.17152064346823714,
+        "15": 0.16168594029532524,
+        "31": 0.16154902494466322
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.0714888506969173,
+          "shape_mismatch": 0.13786212560867486,
+          "empirical_fluctuation": 0.016865079365079364
+        },
+        "1": {
+          "level_shift": 0.04435230338918186,
+          "shape_mismatch": 0.13790403349521682,
+          "empirical_fluctuation": 0.016865079365079364
+        },
+        "3": {
+          "level_shift": 0.03739365534563253,
+          "shape_mismatch": 0.13794763700517876,
+          "empirical_fluctuation": 0.016865079365079364
+        },
+        "7": {
+          "level_shift": 0.01682109244652939,
+          "shape_mismatch": 0.13783447165662838,
+          "empirical_fluctuation": 0.016865079365079364
+        },
+        "15": {
+          "level_shift": 0.006959735042867075,
+          "shape_mismatch": 0.13786112588737878,
+          "empirical_fluctuation": 0.016865079365079364
+        },
+        "31": {
+          "level_shift": 0.006818175364904415,
+          "shape_mismatch": 0.13786577021467944,
+          "empirical_fluctuation": 0.016865079365079364
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02893605985102434,
+        "shape_mismatch": 0.13788224319121598,
+        "empirical_fluctuation": 0.016865079365079368
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1014,
+      "alc": 0.19631688999457444,
+      "brier_by_budget": {
+        "0": 0.2253169501973326,
+        "1": 0.21723207063957525,
+        "3": 0.2022151282962687,
+        "7": 0.18191305096965912,
+        "15": 0.1777350528968676,
+        "31": 0.17966134414367033
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.05203786894505233,
+          "shape_mismatch": 0.13027428243352798,
+          "empirical_fluctuation": 0.043004798818752306
+        },
+        "1": {
+          "level_shift": 0.04389449416143525,
+          "shape_mismatch": 0.1303327776593877,
+          "empirical_fluctuation": 0.043004798818752306
+        },
+        "3": {
+          "level_shift": 0.02887305920278,
+          "shape_mismatch": 0.1303372702747364,
+          "empirical_fluctuation": 0.043004798818752306
+        },
+        "7": {
+          "level_shift": 0.00862086027097932,
+          "shape_mismatch": 0.1302873918799275,
+          "empirical_fluctuation": 0.043004798818752306
+        },
+        "15": {
+          "level_shift": 0.0044298487395698395,
+          "shape_mismatch": 0.13030040533854548,
+          "empirical_fluctuation": 0.043004798818752306
+        },
+        "31": {
+          "level_shift": 0.00635283612890146,
+          "shape_mismatch": 0.13030370919601655,
+          "empirical_fluctuation": 0.043004798818752306
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02300272298234826,
+        "shape_mismatch": 0.13030936819347388,
+        "empirical_fluctuation": 0.04300479881875231
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1015,
+      "alc": 0.18796321001439287,
+      "brier_by_budget": {
+        "0": 0.2249084563116463,
+        "1": 0.19534085184830907,
+        "3": 0.2074527862606952,
+        "7": 0.19155555847252329,
+        "15": 0.15771669811924022,
+        "31": 0.15059185443074663
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.08463005700782433,
+          "shape_mismatch": 0.10214405686541507,
+          "empirical_fluctuation": 0.038134342438406854
+        },
+        "1": {
+          "level_shift": 0.055060302098679494,
+          "shape_mismatch": 0.10214620731122273,
+          "empirical_fluctuation": 0.038134342438406854
+        },
+        "3": {
+          "level_shift": 0.06716274847384171,
+          "shape_mismatch": 0.10215569534844662,
+          "empirical_fluctuation": 0.038134342438406854
+        },
+        "7": {
+          "level_shift": 0.0512775624775476,
+          "shape_mismatch": 0.10214365355656882,
+          "empirical_fluctuation": 0.038134342438406854
+        },
+        "15": {
+          "level_shift": 0.017446257925995877,
+          "shape_mismatch": 0.10213609775483748,
+          "empirical_fluctuation": 0.038134342438406854
+        },
+        "31": {
+          "level_shift": 0.010319499920940712,
+          "shape_mismatch": 0.10213801207139907,
+          "empirical_fluctuation": 0.038134342438406854
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.04768432988808944,
+        "shape_mismatch": 0.10214453768789655,
+        "empirical_fluctuation": 0.038134342438406854
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1016,
+      "alc": 0.174446200391533,
+      "brier_by_budget": {
+        "0": 0.21307242576784097,
+        "1": 0.19705022476639153,
+        "3": 0.16916068694785363,
+        "7": 0.1637157051695857,
+        "15": 0.15729103800701474,
+        "31": 0.15695426836579754
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.059641963560493304,
+          "shape_mismatch": 0.11745374109254517,
+          "empirical_fluctuation": 0.03597672111480251
+        },
+        "1": {
+          "level_shift": 0.04360546223243176,
+          "shape_mismatch": 0.11746804141915726,
+          "empirical_fluctuation": 0.03597672111480251
+        },
+        "3": {
+          "level_shift": 0.01571908945149425,
+          "shape_mismatch": 0.11746487638155688,
+          "empirical_fluctuation": 0.03597672111480251
+        },
+        "7": {
+          "level_shift": 0.010284865759349669,
+          "shape_mismatch": 0.11745411829543353,
+          "empirical_fluctuation": 0.03597672111480251
+        },
+        "15": {
+          "level_shift": 0.0038593920408884113,
+          "shape_mismatch": 0.11745492485132383,
+          "empirical_fluctuation": 0.03597672111480251
+        },
+        "31": {
+          "level_shift": 0.0035200884955702014,
+          "shape_mismatch": 0.11745745875542482,
+          "empirical_fluctuation": 0.03597672111480251
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02100996710243917,
+        "shape_mismatch": 0.1174595121742913,
+        "empirical_fluctuation": 0.03597672111480251
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1017,
+      "alc": 0.19664499008444897,
+      "brier_by_budget": {
+        "0": 0.2330189206988228,
+        "1": 0.22395566399194905,
+        "3": 0.18921947080834015,
+        "7": 0.18914414999828413,
+        "15": 0.17617342939685277,
+        "31": 0.17644555175481474
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.062197613534571025,
+          "shape_mismatch": 0.14781219821764283,
+          "empirical_fluctuation": 0.023009108946608948
+        },
+        "1": {
+          "level_shift": 0.0531368053938707,
+          "shape_mismatch": 0.1478097496514694,
+          "empirical_fluctuation": 0.023009108946608948
+        },
+        "3": {
+          "level_shift": 0.018385130725770974,
+          "shape_mismatch": 0.14782523113596022,
+          "empirical_fluctuation": 0.023009108946608948
+        },
+        "7": {
+          "level_shift": 0.018340657448259984,
+          "shape_mismatch": 0.1477943836034152,
+          "empirical_fluctuation": 0.023009108946608948
+        },
+        "15": {
+          "level_shift": 0.0053469834556278874,
+          "shape_mismatch": 0.14781733699461594,
+          "empirical_fluctuation": 0.023009108946608948
+        },
+        "31": {
+          "level_shift": 0.005618460842226747,
+          "shape_mismatch": 0.14781798196597906,
+          "empirical_fluctuation": 0.023009108946608948
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02582352284238569,
+        "shape_mismatch": 0.14781235829545436,
+        "empirical_fluctuation": 0.02300910894660895
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1018,
+      "alc": 0.18390255822971063,
+      "brier_by_budget": {
+        "0": 0.23995778831468326,
+        "1": 0.20536121908976296,
+        "3": 0.18444085564467302,
+        "7": 0.16551894634931508,
+        "15": 0.16199901435117886,
+        "31": 0.16442772311256318
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.08265262837799191,
+          "shape_mismatch": 0.11201342405629269,
+          "empirical_fluctuation": 0.04529173588039867
+        },
+        "1": {
+          "level_shift": 0.04806404587310317,
+          "shape_mismatch": 0.11200543733626112,
+          "empirical_fluctuation": 0.04529173588039867
+        },
+        "3": {
+          "level_shift": 0.027158553282396324,
+          "shape_mismatch": 0.11199056648187804,
+          "empirical_fluctuation": 0.04529173588039867
+        },
+        "7": {
+          "level_shift": 0.00822519706660232,
+          "shape_mismatch": 0.1120020134023141,
+          "empirical_fluctuation": 0.04529173588039867
+        },
+        "15": {
+          "level_shift": 0.004702401495312569,
+          "shape_mismatch": 0.11200487697546761,
+          "empirical_fluctuation": 0.04529173588039867
+        },
+        "31": {
+          "level_shift": 0.007136591973130006,
+          "shape_mismatch": 0.1119993952590345,
+          "empirical_fluctuation": 0.04529173588039867
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02660896157859507,
+        "shape_mismatch": 0.1120018607707169,
+        "empirical_fluctuation": 0.04529173588039867
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1019,
+      "alc": 0.17087735560380024,
+      "brier_by_budget": {
+        "0": 0.24037330205301946,
+        "1": 0.19311181649894849,
+        "3": 0.159724313008,
+        "7": 0.1531864786332829,
+        "15": 0.15327431616542103,
+        "31": 0.149806405373678
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.09391241122897052,
+          "shape_mismatch": 0.10907813469129281,
+          "empirical_fluctuation": 0.037382756132756136
+        },
+        "1": {
+          "level_shift": 0.04665526816400615,
+          "shape_mismatch": 0.10907379220218619,
+          "empirical_fluctuation": 0.037382756132756136
+        },
+        "3": {
+          "level_shift": 0.013269684052850266,
+          "shape_mismatch": 0.10907187282239358,
+          "empirical_fluctuation": 0.037382756132756136
+        },
+        "7": {
+          "level_shift": 0.0067341307434550255,
+          "shape_mismatch": 0.10906959175707176,
+          "empirical_fluctuation": 0.037382756132756136
+        },
+        "15": {
+          "level_shift": 0.00681704197508837,
+          "shape_mismatch": 0.10907451805757652,
+          "empirical_fluctuation": 0.037382756132756136
+        },
+        "31": {
+          "level_shift": 0.0033529256208083215,
+          "shape_mismatch": 0.10907072362011354,
+          "empirical_fluctuation": 0.037382756132756136
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02442175867205785,
+        "shape_mismatch": 0.10907284079898626,
+        "empirical_fluctuation": 0.037382756132756136
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1020,
+      "alc": 0.18510833549856304,
+      "brier_by_budget": {
+        "0": 0.2237669928206557,
+        "1": 0.19354620782380863,
+        "3": 0.1803319184853757,
+        "7": 0.1800126178339733,
+        "15": 0.1739025368625755,
+        "31": 0.1717298001535083
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06043930856829941,
+          "shape_mismatch": 0.10988237379219187,
+          "empirical_fluctuation": 0.0534453104601644
+        },
+        "1": {
+          "level_shift": 0.030180481725508822,
+          "shape_mismatch": 0.10992041563813541,
+          "empirical_fluctuation": 0.0534453104601644
+        },
+        "3": {
+          "level_shift": 0.016927560024557853,
+          "shape_mismatch": 0.10995904800065344,
+          "empirical_fluctuation": 0.0534453104601644
+        },
+        "7": {
+          "level_shift": 0.016621547918187627,
+          "shape_mismatch": 0.10994575945562125,
+          "empirical_fluctuation": 0.0534453104601644
+        },
+        "15": {
+          "level_shift": 0.0104887685036602,
+          "shape_mismatch": 0.10996845789875091,
+          "empirical_fluctuation": 0.0534453104601644
+        },
+        "31": {
+          "level_shift": 0.008329250668728722,
+          "shape_mismatch": 0.10995523902461518,
+          "empirical_fluctuation": 0.0534453104601644
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.021720527558085713,
+        "shape_mismatch": 0.10994249748031291,
+        "empirical_fluctuation": 0.0534453104601644
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1021,
+      "alc": 0.1578269393938721,
+      "brier_by_budget": {
+        "0": 0.20806478562146438,
+        "1": 0.16831962608207732,
+        "3": 0.16050868074764194,
+        "7": 0.14519752681693343,
+        "15": 0.1403153997635884,
+        "31": 0.14152214149677447
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.07107001436700196,
+          "shape_mismatch": 0.09793948101821287,
+          "empirical_fluctuation": 0.03905529023624954
+        },
+        "1": {
+          "level_shift": 0.03131674835150785,
+          "shape_mismatch": 0.09794758749431995,
+          "empirical_fluctuation": 0.03905529023624954
+        },
+        "3": {
+          "level_shift": 0.02348239298557686,
+          "shape_mismatch": 0.09797099752581553,
+          "empirical_fluctuation": 0.03905529023624954
+        },
+        "7": {
+          "level_shift": 0.008175160574717236,
+          "shape_mismatch": 0.09796707600596664,
+          "empirical_fluctuation": 0.03905529023624954
+        },
+        "15": {
+          "level_shift": 0.003279121828307233,
+          "shape_mismatch": 0.09798098769903162,
+          "empirical_fluctuation": 0.03905529023624954
+        },
+        "31": {
+          "level_shift": 0.004485266774559714,
+          "shape_mismatch": 0.09798158448596522,
+          "empirical_fluctuation": 0.03905529023624954
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.020806212862178004,
+        "shape_mismatch": 0.09796543629544456,
+        "empirical_fluctuation": 0.03905529023624954
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1022,
+      "alc": 0.19531111867637785,
+      "brier_by_budget": {
+        "0": 0.21627146121041452,
+        "1": 0.20660706854337002,
+        "3": 0.19974952138280735,
+        "7": 0.19085036050856338,
+        "15": 0.18427331908176045,
+        "31": 0.17387918652036133
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.050646712802193884,
+          "shape_mismatch": 0.12667520491875423,
+          "empirical_fluctuation": 0.03894954348946643
+        },
+        "1": {
+          "level_shift": 0.040994823879290695,
+          "shape_mismatch": 0.12666270117461287,
+          "empirical_fluctuation": 0.03894954348946643
+        },
+        "3": {
+          "level_shift": 0.03411785714403411,
+          "shape_mismatch": 0.12668212074930682,
+          "empirical_fluctuation": 0.03894954348946643
+        },
+        "7": {
+          "level_shift": 0.025216205877874476,
+          "shape_mismatch": 0.1266846111412225,
+          "empirical_fluctuation": 0.03894954348946643
+        },
+        "15": {
+          "level_shift": 0.01865676764763061,
+          "shape_mismatch": 0.1266670079446634,
+          "empirical_fluctuation": 0.03894954348946643
+        },
+        "31": {
+          "level_shift": 0.00825088762213891,
+          "shape_mismatch": 0.126678755408756,
+          "empirical_fluctuation": 0.03894954348946643
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02968689095219926,
+        "shape_mismatch": 0.12667468423471215,
+        "empirical_fluctuation": 0.03894954348946643
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1023,
+      "alc": 0.19193198110260792,
+      "brier_by_budget": {
+        "0": 0.21516101090302633,
+        "1": 0.19722772792500926,
+        "3": 0.19050696675934137,
+        "7": 0.18874304032910288,
+        "15": 0.18570047478683405,
+        "31": 0.1798023805224776
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04422485714469489,
+          "shape_mismatch": 0.12789155704367658,
+          "empirical_fluctuation": 0.043044596714654854
+        },
+        "1": {
+          "level_shift": 0.026149328029743554,
+          "shape_mismatch": 0.12803380318061083,
+          "empirical_fluctuation": 0.043044596714654854
+        },
+        "3": {
+          "level_shift": 0.019388532713517603,
+          "shape_mismatch": 0.12807383733116892,
+          "empirical_fluctuation": 0.043044596714654854
+        },
+        "7": {
+          "level_shift": 0.01769121073643063,
+          "shape_mismatch": 0.1280072328780174,
+          "empirical_fluctuation": 0.043044596714654854
+        },
+        "15": {
+          "level_shift": 0.014684827019254451,
+          "shape_mismatch": 0.12797105105292475,
+          "empirical_fluctuation": 0.043044596714654854
+        },
+        "31": {
+          "level_shift": 0.008793486404518233,
+          "shape_mismatch": 0.12796429740330453,
+          "empirical_fluctuation": 0.043044596714654854
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02088461405471056,
+        "shape_mismatch": 0.1280027703332425,
+        "empirical_fluctuation": 0.043044596714654854
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1024,
+      "alc": 0.18952238902226873,
+      "brier_by_budget": {
+        "0": 0.2123062601577724,
+        "1": 0.20814704266528256,
+        "3": 0.1941827894007134,
+        "7": 0.1809664008789433,
+        "15": 0.1740425860444066,
+        "31": 0.16823999208622298
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.05392939527115164,
+          "shape_mismatch": 0.11767971481447069,
+          "empirical_fluctuation": 0.04069715007215007
+        },
+        "1": {
+          "level_shift": 0.049771512763103286,
+          "shape_mismatch": 0.1176783798300292,
+          "empirical_fluctuation": 0.04069715007215007
+        },
+        "3": {
+          "level_shift": 0.03580776604102008,
+          "shape_mismatch": 0.11767787328754326,
+          "empirical_fluctuation": 0.04069715007215007
+        },
+        "7": {
+          "level_shift": 0.02259283868864617,
+          "shape_mismatch": 0.1176764121181471,
+          "empirical_fluctuation": 0.04069715007215007
+        },
+        "15": {
+          "level_shift": 0.01566813479736654,
+          "shape_mismatch": 0.11767730117488996,
+          "empirical_fluctuation": 0.04069715007215007
+        },
+        "31": {
+          "level_shift": 0.009868441536245548,
+          "shape_mismatch": 0.11767440047782736,
+          "empirical_fluctuation": 0.04069715007215007
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.031147834138766935,
+        "shape_mismatch": 0.11767740481135171,
+        "empirical_fluctuation": 0.04069715007215007
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1025,
+      "alc": 0.19394247211613166,
+      "brier_by_budget": {
+        "0": 0.21310902198578716,
+        "1": 0.20177045148002437,
+        "3": 0.198493307486608,
+        "7": 0.18894749958298754,
+        "15": 0.18291591367316995,
+        "31": 0.1820613547299496
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.03687803835369443,
+          "shape_mismatch": 0.13429495651794385,
+          "empirical_fluctuation": 0.04193602711414887
+        },
+        "1": {
+          "level_shift": 0.02550663736656099,
+          "shape_mismatch": 0.13432778699931452,
+          "empirical_fluctuation": 0.04193602711414887
+        },
+        "3": {
+          "level_shift": 0.022229484280207736,
+          "shape_mismatch": 0.1343277960922514,
+          "empirical_fluctuation": 0.04193602711414887
+        },
+        "7": {
+          "level_shift": 0.01270510725895605,
+          "shape_mismatch": 0.1343063652098826,
+          "empirical_fluctuation": 0.04193602711414887
+        },
+        "15": {
+          "level_shift": 0.006668028573909571,
+          "shape_mismatch": 0.13431185798511153,
+          "empirical_fluctuation": 0.04193602711414887
+        },
+        "31": {
+          "level_shift": 0.005794357059160189,
+          "shape_mismatch": 0.13433097055664053,
+          "empirical_fluctuation": 0.04193602711414887
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.01768909103721233,
+        "shape_mismatch": 0.13431735396477046,
+        "empirical_fluctuation": 0.04193602711414887
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1026,
+      "alc": 0.20283213820278703,
+      "brier_by_budget": {
+        "0": 0.2137261317346062,
+        "1": 0.20559651722347275,
+        "3": 0.20208146466676696,
+        "7": 0.201815714449375,
+        "15": 0.20189949292492293,
+        "31": 0.19180887176418876
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.025940761150479313,
+          "shape_mismatch": 0.1426510643979914,
+          "empirical_fluctuation": 0.04513430618613545
+        },
+        "1": {
+          "level_shift": 0.01780125790316873,
+          "shape_mismatch": 0.14266095313416857,
+          "empirical_fluctuation": 0.04513430618613545
+        },
+        "3": {
+          "level_shift": 0.014298417151448127,
+          "shape_mismatch": 0.14264874132918337,
+          "empirical_fluctuation": 0.04513430618613545
+        },
+        "7": {
+          "level_shift": 0.014017913741411796,
+          "shape_mismatch": 0.14266349452182775,
+          "empirical_fluctuation": 0.04513430618613545
+        },
+        "15": {
+          "level_shift": 0.014122012417480824,
+          "shape_mismatch": 0.14264317432130666,
+          "empirical_fluctuation": 0.04513430618613545
+        },
+        "31": {
+          "level_shift": 0.004034546326981232,
+          "shape_mismatch": 0.14264001925107206,
+          "empirical_fluctuation": 0.04513430618613545
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.015045450990447951,
+        "shape_mismatch": 0.14265238102620362,
+        "empirical_fluctuation": 0.04513430618613545
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1027,
+      "alc": 0.19073832587767098,
+      "brier_by_budget": {
+        "0": 0.241280317912754,
+        "1": 0.19940256401898437,
+        "3": 0.18539805784510313,
+        "7": 0.18857110608066768,
+        "15": 0.1739394885695751,
+        "31": 0.17148050783529503
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.07512309161107497,
+          "shape_mismatch": 0.12080222251913432,
+          "empirical_fluctuation": 0.045355003782544694
+        },
+        "1": {
+          "level_shift": 0.03325552071254649,
+          "shape_mismatch": 0.1207920395238932,
+          "empirical_fluctuation": 0.045355003782544694
+        },
+        "3": {
+          "level_shift": 0.0192487331165802,
+          "shape_mismatch": 0.12079432094597824,
+          "empirical_fluctuation": 0.045355003782544694
+        },
+        "7": {
+          "level_shift": 0.022422206360411933,
+          "shape_mismatch": 0.12079389593771106,
+          "empirical_fluctuation": 0.045355003782544694
+        },
+        "15": {
+          "level_shift": 0.007776085297139858,
+          "shape_mismatch": 0.12080839948989056,
+          "empirical_fluctuation": 0.045355003782544694
+        },
+        "31": {
+          "level_shift": 0.0053104967489777674,
+          "shape_mismatch": 0.12081500730377256,
+          "empirical_fluctuation": 0.045355003782544694
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02458386793334097,
+        "shape_mismatch": 0.12079945416178531,
+        "empirical_fluctuation": 0.0453550037825447
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1028,
+      "alc": 0.16890832479879236,
+      "brier_by_budget": {
+        "0": 0.21732924243635085,
+        "1": 0.17661559702627744,
+        "3": 0.16356284317787995,
+        "7": 0.15936461477553965,
+        "15": 0.15827330224891337,
+        "31": 0.15612129109435197
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06832885580846804,
+          "shape_mismatch": 0.1108124262585499,
+          "empirical_fluctuation": 0.03818796036933292
+        },
+        "1": {
+          "level_shift": 0.027618099019035953,
+          "shape_mismatch": 0.11080953763790856,
+          "empirical_fluctuation": 0.03818796036933292
+        },
+        "3": {
+          "level_shift": 0.01455460656197386,
+          "shape_mismatch": 0.11082027624657316,
+          "empirical_fluctuation": 0.03818796036933292
+        },
+        "7": {
+          "level_shift": 0.010376777124193505,
+          "shape_mismatch": 0.11079987728201321,
+          "empirical_fluctuation": 0.03818796036933292
+        },
+        "15": {
+          "level_shift": 0.00928454577274393,
+          "shape_mismatch": 0.11080079610683652,
+          "empirical_fluctuation": 0.03818796036933292
+        },
+        "31": {
+          "level_shift": 0.007129294821252608,
+          "shape_mismatch": 0.11080403590376645,
+          "empirical_fluctuation": 0.03818796036933292
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.019912620758561515,
+        "shape_mismatch": 0.11080774367089793,
+        "empirical_fluctuation": 0.03818796036933292
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1029,
+      "alc": 0.17352194217852493,
+      "brier_by_budget": {
+        "0": 0.21732354407370627,
+        "1": 0.17456354238087674,
+        "3": 0.177075971292532,
+        "7": 0.17471473379430177,
+        "15": 0.15643668197429367,
+        "31": 0.15231401882753456
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.07262613901049521,
+          "shape_mismatch": 0.10540943608774209,
+          "empirical_fluctuation": 0.039287968975468976
+        },
+        "1": {
+          "level_shift": 0.029847004373017155,
+          "shape_mismatch": 0.10542856903239062,
+          "empirical_fluctuation": 0.039287968975468976
+        },
+        "3": {
+          "level_shift": 0.03237698225233085,
+          "shape_mismatch": 0.10541102006473217,
+          "empirical_fluctuation": 0.039287968975468976
+        },
+        "7": {
+          "level_shift": 0.030027988074368833,
+          "shape_mismatch": 0.10539877674446398,
+          "empirical_fluctuation": 0.039287968975468976
+        },
+        "15": {
+          "level_shift": 0.0117425620466953,
+          "shape_mismatch": 0.10540615095212937,
+          "empirical_fluctuation": 0.039287968975468976
+        },
+        "31": {
+          "level_shift": 0.007616570450985439,
+          "shape_mismatch": 0.10540947940108016,
+          "empirical_fluctuation": 0.039287968975468976
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.028823178295430494,
+        "shape_mismatch": 0.10541079490762546,
+        "empirical_fluctuation": 0.039287968975468976
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1030,
+      "alc": 0.21190512749130133,
+      "brier_by_budget": {
+        "0": 0.22564096010861007,
+        "1": 0.21925872103515398,
+        "3": 0.21080069860872608,
+        "7": 0.20809119730170184,
+        "15": 0.20782118104547384,
+        "31": 0.2014667188222916
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.030742245965272436,
+          "shape_mismatch": 0.15625333174795522,
+          "empirical_fluctuation": 0.03864538239538239
+        },
+        "1": {
+          "level_shift": 0.024367132780476225,
+          "shape_mismatch": 0.15624620585929536,
+          "empirical_fluctuation": 0.03864538239538239
+        },
+        "3": {
+          "level_shift": 0.015905937633636284,
+          "shape_mismatch": 0.1562493785797074,
+          "empirical_fluctuation": 0.03864538239538239
+        },
+        "7": {
+          "level_shift": 0.013199258842969826,
+          "shape_mismatch": 0.1562465560633496,
+          "empirical_fluctuation": 0.03864538239538239
+        },
+        "15": {
+          "level_shift": 0.01294168905908674,
+          "shape_mismatch": 0.1562341095910047,
+          "empirical_fluctuation": 0.03864538239538239
+        },
+        "31": {
+          "level_shift": 0.0065849644627181585,
+          "shape_mismatch": 0.15623637196419107,
+          "empirical_fluctuation": 0.03864538239538239
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.017015524706032875,
+        "shape_mismatch": 0.15624422038988606,
+        "empirical_fluctuation": 0.03864538239538239
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1031,
+      "alc": 0.2041748051738571,
+      "brier_by_budget": {
+        "0": 0.22854273381061965,
+        "1": 0.21095775927886684,
+        "3": 0.2098640613497713,
+        "7": 0.2023165319515839,
+        "15": 0.18968333785929778,
+        "31": 0.18756193704891172
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.045754171537137615,
+          "shape_mismatch": 0.15445838550580526,
+          "empirical_fluctuation": 0.028330176767676768
+        },
+        "1": {
+          "level_shift": 0.02820237698608655,
+          "shape_mismatch": 0.15442520552510353,
+          "empirical_fluctuation": 0.028330176767676768
+        },
+        "3": {
+          "level_shift": 0.02712553817573389,
+          "shape_mismatch": 0.15440834640636064,
+          "empirical_fluctuation": 0.028330176767676768
+        },
+        "7": {
+          "level_shift": 0.01955185945925494,
+          "shape_mismatch": 0.15443449572465218,
+          "empirical_fluctuation": 0.028330176767676768
+        },
+        "15": {
+          "level_shift": 0.006915344341789158,
+          "shape_mismatch": 0.15443781674983187,
+          "empirical_fluctuation": 0.028330176767676768
+        },
+        "31": {
+          "level_shift": 0.004798248947337308,
+          "shape_mismatch": 0.15443351133389763,
+          "empirical_fluctuation": 0.028330176767676768
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.0214142658410204,
+        "shape_mismatch": 0.15443036256515993,
+        "empirical_fluctuation": 0.028330176767676768
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1032,
+      "alc": 0.17357653389400612,
+      "brier_by_budget": {
+        "0": 0.20578536532116093,
+        "1": 0.18618615965957455,
+        "3": 0.17926879489794822,
+        "7": 0.16522748024964368,
+        "15": 0.1570922520007358,
+        "31": 0.1544306000030957
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.056547816144093085,
+          "shape_mismatch": 0.11542312413497689,
+          "empirical_fluctuation": 0.03381442504209095
+        },
+        "1": {
+          "level_shift": 0.03695041027463914,
+          "shape_mismatch": 0.11542132434284447,
+          "empirical_fluctuation": 0.03381442504209095
+        },
+        "3": {
+          "level_shift": 0.029990726396944303,
+          "shape_mismatch": 0.11546364345891297,
+          "empirical_fluctuation": 0.03381442504209095
+        },
+        "7": {
+          "level_shift": 0.01595334366385534,
+          "shape_mismatch": 0.1154597115436974,
+          "empirical_fluctuation": 0.03381442504209095
+        },
+        "15": {
+          "level_shift": 0.007845826508431051,
+          "shape_mismatch": 0.11543200045021378,
+          "empirical_fluctuation": 0.03381442504209095
+        },
+        "31": {
+          "level_shift": 0.005202684150723427,
+          "shape_mismatch": 0.1154134908102813,
+          "empirical_fluctuation": 0.03381442504209095
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02432311139825562,
+        "shape_mismatch": 0.11543899745365956,
+        "empirical_fluctuation": 0.03381442504209095
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1033,
+      "alc": 0.2075285971667647,
+      "brier_by_budget": {
+        "0": 0.22838769700506376,
+        "1": 0.21464635172839053,
+        "3": 0.20967859198266448,
+        "7": 0.20159314773742326,
+        "15": 0.19862746977777324,
+        "31": 0.19780715221008016
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.03999742547466307,
+          "shape_mismatch": 0.14617547055833227,
+          "empirical_fluctuation": 0.042214800972068416
+        },
+        "1": {
+          "level_shift": 0.0262439788032939,
+          "shape_mismatch": 0.14618757195302823,
+          "empirical_fluctuation": 0.042214800972068416
+        },
+        "3": {
+          "level_shift": 0.02127563378591665,
+          "shape_mismatch": 0.1461881572246794,
+          "empirical_fluctuation": 0.042214800972068416
+        },
+        "7": {
+          "level_shift": 0.013199235866431111,
+          "shape_mismatch": 0.14617911089892371,
+          "empirical_fluctuation": 0.042214800972068416
+        },
+        "15": {
+          "level_shift": 0.010224877193741377,
+          "shape_mismatch": 0.14618779161196344,
+          "empirical_fluctuation": 0.042214800972068416
+        },
+        "31": {
+          "level_shift": 0.009405852208408226,
+          "shape_mismatch": 0.1461864990296035,
+          "empirical_fluctuation": 0.042214800972068416
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.01912907289818374,
+        "shape_mismatch": 0.14618472329651255,
+        "empirical_fluctuation": 0.04221480097206842
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1034,
+      "alc": 0.21967540156927898,
+      "brier_by_budget": {
+        "0": 0.2531377880997682,
+        "1": 0.23053204189630438,
+        "3": 0.22659943870696034,
+        "7": 0.2147891205115463,
+        "15": 0.20138015973260096,
+        "31": 0.19701470589819747
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.0660596844929621,
+          "shape_mismatch": 0.14558447127015053,
+          "empirical_fluctuation": 0.041493632336655595
+        },
+        "1": {
+          "level_shift": 0.04336694500789271,
+          "shape_mismatch": 0.14567146455175609,
+          "empirical_fluctuation": 0.041493632336655595
+        },
+        "3": {
+          "level_shift": 0.03943110576958407,
+          "shape_mismatch": 0.14567470060072069,
+          "empirical_fluctuation": 0.041493632336655595
+        },
+        "7": {
+          "level_shift": 0.027674955294090097,
+          "shape_mismatch": 0.1456205328808006,
+          "empirical_fluctuation": 0.041493632336655595
+        },
+        "15": {
+          "level_shift": 0.01428857252700006,
+          "shape_mismatch": 0.1455979548689453,
+          "empirical_fluctuation": 0.041493632336655595
+        },
+        "31": {
+          "level_shift": 0.009902791103378267,
+          "shape_mismatch": 0.14561828245816363,
+          "empirical_fluctuation": 0.041493632336655595
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.03254856327934742,
+        "shape_mismatch": 0.14563320595327595,
+        "empirical_fluctuation": 0.041493632336655595
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1035,
+      "alc": 0.22588137137381303,
+      "brier_by_budget": {
+        "0": 0.22946022048727832,
+        "1": 0.2514651515417967,
+        "3": 0.22046853304449132,
+        "7": 0.21673230792845952,
+        "15": 0.2193505441790703,
+        "31": 0.2133204198632161
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.033541853445203135,
+          "shape_mismatch": 0.14222882651871682,
+          "empirical_fluctuation": 0.05368954052335835
+        },
+        "1": {
+          "level_shift": 0.0555564125717439,
+          "shape_mismatch": 0.14221919844669448,
+          "empirical_fluctuation": 0.05368954052335835
+        },
+        "3": {
+          "level_shift": 0.024551954533914906,
+          "shape_mismatch": 0.14222703798721806,
+          "empirical_fluctuation": 0.05368954052335835
+        },
+        "7": {
+          "level_shift": 0.02080002030966171,
+          "shape_mismatch": 0.14224274709543944,
+          "empirical_fluctuation": 0.05368954052335835
+        },
+        "15": {
+          "level_shift": 0.023396563821311712,
+          "shape_mismatch": 0.1422644398344002,
+          "empirical_fluctuation": 0.05368954052335835
+        },
+        "31": {
+          "level_shift": 0.017354718420735143,
+          "shape_mismatch": 0.14227616091912262,
+          "empirical_fluctuation": 0.05368954052335835
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.029950647433920275,
+        "shape_mismatch": 0.14224118341653438,
+        "empirical_fluctuation": 0.05368954052335836
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1036,
+      "alc": 0.15231944779825513,
+      "brier_by_budget": {
+        "0": 0.2204603603190532,
+        "1": 0.16016878515184763,
+        "3": 0.14190707015681162,
+        "7": 0.1407670006059307,
+        "15": 0.13944956364937328,
+        "31": 0.13814927853557166
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.08452808856740673,
+          "shape_mismatch": 0.10861414958672017,
+          "empirical_fluctuation": 0.027318122164926274
+        },
+        "1": {
+          "level_shift": 0.024239417025224894,
+          "shape_mismatch": 0.10861124596169647,
+          "empirical_fluctuation": 0.027318122164926274
+        },
+        "3": {
+          "level_shift": 0.005957001482081515,
+          "shape_mismatch": 0.10863194650980383,
+          "empirical_fluctuation": 0.027318122164926274
+        },
+        "7": {
+          "level_shift": 0.004850936996024093,
+          "shape_mismatch": 0.10859794144498032,
+          "empirical_fluctuation": 0.027318122164926274
+        },
+        "15": {
+          "level_shift": 0.0035284612317108013,
+          "shape_mismatch": 0.10860298025273618,
+          "empirical_fluctuation": 0.027318122164926274
+        },
+        "31": {
+          "level_shift": 0.002228351155401767,
+          "shape_mismatch": 0.10860280521524363,
+          "empirical_fluctuation": 0.027318122164926274
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.016390807319289113,
+        "shape_mismatch": 0.10861051831403974,
+        "empirical_fluctuation": 0.027318122164926278
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1037,
+      "alc": 0.19687563549083784,
+      "brier_by_budget": {
+        "0": 0.21503559663710262,
+        "1": 0.1984352203108561,
+        "3": 0.19625244476154272,
+        "7": 0.19629996756293655,
+        "15": 0.1901727974059759,
+        "31": 0.19139989818865302
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.0308111396211691,
+          "shape_mismatch": 0.14628730042449445,
+          "empirical_fluctuation": 0.037937156591439064
+        },
+        "1": {
+          "level_shift": 0.014156896466791089,
+          "shape_mismatch": 0.14634116725262591,
+          "empirical_fluctuation": 0.037937156591439064
+        },
+        "3": {
+          "level_shift": 0.011886167528715571,
+          "shape_mismatch": 0.1464291206413881,
+          "empirical_fluctuation": 0.037937156591439064
+        },
+        "7": {
+          "level_shift": 0.011907702149582101,
+          "shape_mismatch": 0.14645510882191537,
+          "empirical_fluctuation": 0.037937156591439064
+        },
+        "15": {
+          "level_shift": 0.0058520295884864635,
+          "shape_mismatch": 0.14638361122605037,
+          "empirical_fluctuation": 0.037937156591439064
+        },
+        "31": {
+          "level_shift": 0.007123593098899949,
+          "shape_mismatch": 0.146339148498314,
+          "empirical_fluctuation": 0.037937156591439064
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.012554032418721951,
+        "shape_mismatch": 0.1463844464806768,
+        "empirical_fluctuation": 0.037937156591439064
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1038,
+      "alc": 0.18715999866140262,
+      "brier_by_budget": {
+        "0": 0.21592178193299028,
+        "1": 0.19524845652337522,
+        "3": 0.17839265993706052,
+        "7": 0.18387899210606629,
+        "15": 0.1824557720358031,
+        "31": 0.1757264434764256
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04644895652624579,
+          "shape_mismatch": 0.13109346037370204,
+          "empirical_fluctuation": 0.03837936503304245
+        },
+        "1": {
+          "level_shift": 0.02578596123651285,
+          "shape_mismatch": 0.13108313025381993,
+          "empirical_fluctuation": 0.03837936503304245
+        },
+        "3": {
+          "level_shift": 0.008931608385947889,
+          "shape_mismatch": 0.13108168651807017,
+          "empirical_fluctuation": 0.03837936503304245
+        },
+        "7": {
+          "level_shift": 0.014418204138854768,
+          "shape_mismatch": 0.13108142293416908,
+          "empirical_fluctuation": 0.03837936503304245
+        },
+        "15": {
+          "level_shift": 0.012993632773703802,
+          "shape_mismatch": 0.13108277422905681,
+          "empirical_fluctuation": 0.03837936503304245
+        },
+        "31": {
+          "level_shift": 0.0062634179771959815,
+          "shape_mismatch": 0.13108366046618716,
+          "empirical_fluctuation": 0.03837936503304245
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.01769711875734804,
+        "shape_mismatch": 0.13108351487101214,
+        "empirical_fluctuation": 0.03837936503304245
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1039,
+      "alc": 0.1956144576851543,
+      "brier_by_budget": {
+        "0": 0.21057837186393422,
+        "1": 0.23051478764858496,
+        "3": 0.196016930089697,
+        "7": 0.1788169863187063,
+        "15": 0.17874441596397042,
+        "31": 0.1773799649456913
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.03745772199709643,
+          "shape_mismatch": 0.138013685072373,
+          "empirical_fluctuation": 0.0351069647944648
+        },
+        "1": {
+          "level_shift": 0.057355487106105614,
+          "shape_mismatch": 0.13805233574801457,
+          "empirical_fluctuation": 0.0351069647944648
+        },
+        "3": {
+          "level_shift": 0.022908668348027177,
+          "shape_mismatch": 0.13800129694720506,
+          "empirical_fluctuation": 0.0351069647944648
+        },
+        "7": {
+          "level_shift": 0.0056785456756634845,
+          "shape_mismatch": 0.13803147584857803,
+          "empirical_fluctuation": 0.0351069647944648
+        },
+        "15": {
+          "level_shift": 0.0055197451189313825,
+          "shape_mismatch": 0.13811770605057427,
+          "empirical_fluctuation": 0.0351069647944648
+        },
+        "31": {
+          "level_shift": 0.0042017087776762855,
+          "shape_mismatch": 0.1380712913735502,
+          "empirical_fluctuation": 0.0351069647944648
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.022458432327222805,
+        "shape_mismatch": 0.13804906056346672,
+        "empirical_fluctuation": 0.0351069647944648
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1040,
+      "alc": 0.19302154381219017,
+      "brier_by_budget": {
+        "0": 0.2352261830881272,
+        "1": 0.20511169310183874,
+        "3": 0.19982994512802973,
+        "7": 0.1784798811856773,
+        "15": 0.17703749213382775,
+        "31": 0.1740712319350272
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.07136184698000635,
+          "shape_mismatch": 0.13045429088848262,
+          "empirical_fluctuation": 0.033410045219638244
+        },
+        "1": {
+          "level_shift": 0.04123157715039127,
+          "shape_mismatch": 0.13047007073180925,
+          "empirical_fluctuation": 0.033410045219638244
+        },
+        "3": {
+          "level_shift": 0.03591778718918869,
+          "shape_mismatch": 0.1305021127192028,
+          "empirical_fluctuation": 0.033410045219638244
+        },
+        "7": {
+          "level_shift": 0.014617297915915883,
+          "shape_mismatch": 0.1304525380501232,
+          "empirical_fluctuation": 0.033410045219638244
+        },
+        "15": {
+          "level_shift": 0.013187379149855674,
+          "shape_mismatch": 0.13044006776433384,
+          "empirical_fluctuation": 0.033410045219638244
+        },
+        "31": {
+          "level_shift": 0.01020404681676874,
+          "shape_mismatch": 0.1304571398986202,
+          "empirical_fluctuation": 0.033410045219638244
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.029147397660747813,
+        "shape_mismatch": 0.1304641009318041,
+        "empirical_fluctuation": 0.033410045219638244
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1041,
+      "alc": 0.2096405471823023,
+      "brier_by_budget": {
+        "0": 0.2384018721243284,
+        "1": 0.20782285340199386,
+        "3": 0.21206591268772607,
+        "7": 0.2080867197636631,
+        "15": 0.2020148544718841,
+        "31": 0.19802291904815997
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04932141584917316,
+          "shape_mismatch": 0.14501365537651303,
+          "empirical_fluctuation": 0.044066800898642206
+        },
+        "1": {
+          "level_shift": 0.018743855171366616,
+          "shape_mismatch": 0.14501219733198503,
+          "empirical_fluctuation": 0.044066800898642206
+        },
+        "3": {
+          "level_shift": 0.022948374000246543,
+          "shape_mismatch": 0.14505073778883734,
+          "empirical_fluctuation": 0.044066800898642206
+        },
+        "7": {
+          "level_shift": 0.01900313149499079,
+          "shape_mismatch": 0.1450167873700301,
+          "empirical_fluctuation": 0.044066800898642206
+        },
+        "15": {
+          "level_shift": 0.012930536728929572,
+          "shape_mismatch": 0.14501751684431233,
+          "empirical_fluctuation": 0.044066800898642206
+        },
+        "31": {
+          "level_shift": 0.008932703035209152,
+          "shape_mismatch": 0.1450234151143086,
+          "empirical_fluctuation": 0.044066800898642206
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02055059136754494,
+        "shape_mismatch": 0.14502315491611514,
+        "empirical_fluctuation": 0.044066800898642206
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1042,
+      "alc": 0.18955334270882926,
+      "brier_by_budget": {
+        "0": 0.22621656085158182,
+        "1": 0.20540987828787463,
+        "3": 0.1948777304904311,
+        "7": 0.1814375292270627,
+        "15": 0.16939058140372149,
+        "31": 0.16708542741853066
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06398259243845436,
+          "shape_mismatch": 0.12369505747838318,
+          "empirical_fluctuation": 0.038538910934744264
+        },
+        "1": {
+          "level_shift": 0.04318390777409329,
+          "shape_mismatch": 0.12368705957903708,
+          "empirical_fluctuation": 0.038538910934744264
+        },
+        "3": {
+          "level_shift": 0.03264574944421383,
+          "shape_mismatch": 0.12369307011147303,
+          "empirical_fluctuation": 0.038538910934744264
+        },
+        "7": {
+          "level_shift": 0.019215395666457483,
+          "shape_mismatch": 0.12368322262586093,
+          "empirical_fluctuation": 0.038538910934744264
+        },
+        "15": {
+          "level_shift": 0.007160055860177441,
+          "shape_mismatch": 0.12369161460879978,
+          "empirical_fluctuation": 0.038538910934744264
+        },
+        "31": {
+          "level_shift": 0.004842680471412894,
+          "shape_mismatch": 0.12370383601237352,
+          "empirical_fluctuation": 0.038538910934744264
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.027323549039975133,
+        "shape_mismatch": 0.12369088273410983,
+        "empirical_fluctuation": 0.038538910934744264
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1043,
+      "alc": 0.19566149922369508,
+      "brier_by_budget": {
+        "0": 0.21898382207438352,
+        "1": 0.20091683383875764,
+        "3": 0.20123092047957467,
+        "7": 0.18784224169033933,
+        "15": 0.19003219524378098,
+        "31": 0.1775867876576618
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04736429292633278,
+          "shape_mismatch": 0.12420310887623832,
+          "empirical_fluctuation": 0.04741642027181243
+        },
+        "1": {
+          "level_shift": 0.029278928791601176,
+          "shape_mismatch": 0.12422148477534405,
+          "empirical_fluctuation": 0.04741642027181243
+        },
+        "3": {
+          "level_shift": 0.02945853401066746,
+          "shape_mismatch": 0.12435596619709477,
+          "empirical_fluctuation": 0.04741642027181243
+        },
+        "7": {
+          "level_shift": 0.01609811721757955,
+          "shape_mismatch": 0.12432770420094737,
+          "empirical_fluctuation": 0.04741642027181243
+        },
+        "15": {
+          "level_shift": 0.018259666614779336,
+          "shape_mismatch": 0.1243561083571892,
+          "empirical_fluctuation": 0.04741642027181243
+        },
+        "31": {
+          "level_shift": 0.005855802223706975,
+          "shape_mismatch": 0.12431456516214241,
+          "empirical_fluctuation": 0.04741642027181243
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.023941058841929482,
+        "shape_mismatch": 0.12430402010995316,
+        "empirical_fluctuation": 0.047416420271812434
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1044,
+      "alc": 0.23513027531462938,
+      "brier_by_budget": {
+        "0": 0.24680946427638759,
+        "1": 0.2660462391051297,
+        "3": 0.2402996361890281,
+        "7": 0.22531812999680537,
+        "15": 0.21408051634453126,
+        "31": 0.21300424559891734
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.050374466279539336,
+          "shape_mismatch": 0.1500684305365308,
+          "empirical_fluctuation": 0.04636656746031746
+        },
+        "1": {
+          "level_shift": 0.06961215989837126,
+          "shape_mismatch": 0.15006751174644092,
+          "empirical_fluctuation": 0.04636656746031746
+        },
+        "3": {
+          "level_shift": 0.0438639780576604,
+          "shape_mismatch": 0.15006909067105023,
+          "empirical_fluctuation": 0.04636656746031746
+        },
+        "7": {
+          "level_shift": 0.028882004521622456,
+          "shape_mismatch": 0.15006955801486546,
+          "empirical_fluctuation": 0.04636656746031746
+        },
+        "15": {
+          "level_shift": 0.017646123034257593,
+          "shape_mismatch": 0.1500678258499562,
+          "empirical_fluctuation": 0.04636656746031746
+        },
+        "31": {
+          "level_shift": 0.016564981478421725,
+          "shape_mismatch": 0.15007269666017817,
+          "empirical_fluctuation": 0.04636656746031746
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.03869479787817845,
+        "shape_mismatch": 0.15006890997613348,
+        "empirical_fluctuation": 0.04636656746031746
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1045,
+      "alc": 0.1727380175174358,
+      "brier_by_budget": {
+        "0": 0.21570089031657583,
+        "1": 0.17631163302978056,
+        "3": 0.1722522180689345,
+        "7": 0.1625349472319727,
+        "15": 0.1636693917021047,
+        "31": 0.16214290479219723
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.06020508666472699,
+          "shape_mismatch": 0.1105988321861283,
+          "empirical_fluctuation": 0.04489697146572054
+        },
+        "1": {
+          "level_shift": 0.0208018902217396,
+          "shape_mismatch": 0.1106127713423204,
+          "empirical_fluctuation": 0.04489697146572054
+        },
+        "3": {
+          "level_shift": 0.016763345649745395,
+          "shape_mismatch": 0.11059190095346857,
+          "empirical_fluctuation": 0.04489697146572054
+        },
+        "7": {
+          "level_shift": 0.007044246207937929,
+          "shape_mismatch": 0.11059372955831424,
+          "empirical_fluctuation": 0.04489697146572054
+        },
+        "15": {
+          "level_shift": 0.008165377460258048,
+          "shape_mismatch": 0.11060704277612611,
+          "empirical_fluctuation": 0.04489697146572054
+        },
+        "31": {
+          "level_shift": 0.006643064186749042,
+          "shape_mismatch": 0.11060286913972767,
+          "empirical_fluctuation": 0.04489697146572054
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.0172397869930838,
+        "shape_mismatch": 0.11060125905863147,
+        "empirical_fluctuation": 0.04489697146572054
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1046,
+      "alc": 0.17037201375273286,
+      "brier_by_budget": {
+        "0": 0.20546499585914524,
+        "1": 0.19281209664006946,
+        "3": 0.1615170361672559,
+        "7": 0.158015261044353,
+        "15": 0.15893608085965447,
+        "31": 0.15569419224551773
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.05688780970739106,
+          "shape_mismatch": 0.10264181499835977,
+          "empirical_fluctuation": 0.04593537115339441
+        },
+        "1": {
+          "level_shift": 0.04423229056176514,
+          "shape_mismatch": 0.10264443492490992,
+          "empirical_fluctuation": 0.04593537115339441
+        },
+        "3": {
+          "level_shift": 0.012908340291786174,
+          "shape_mismatch": 0.10267332472207531,
+          "empirical_fluctuation": 0.04593537115339441
+        },
+        "7": {
+          "level_shift": 0.009419867502944568,
+          "shape_mismatch": 0.10266002238801404,
+          "empirical_fluctuation": 0.04593537115339441
+        },
+        "15": {
+          "level_shift": 0.01035798323971391,
+          "shape_mismatch": 0.10264272646654614,
+          "empirical_fluctuation": 0.04593537115339441
+        },
+        "31": {
+          "level_shift": 0.007105219556337727,
+          "shape_mismatch": 0.1026536015357856,
+          "empirical_fluctuation": 0.04593537115339441
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02178299924561484,
+        "shape_mismatch": 0.10265364335372362,
+        "empirical_fluctuation": 0.04593537115339441
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1047,
+      "alc": 0.2137239846876474,
+      "brier_by_budget": {
+        "0": 0.22559370808695778,
+        "1": 0.22364686757378166,
+        "3": 0.208196781518327,
+        "7": 0.21161149112347175,
+        "15": 0.20940386612616968,
+        "31": 0.20592812610601602
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.026140698447131412,
+          "shape_mismatch": 0.15889376268523056,
+          "empirical_fluctuation": 0.04055924695459579
+        },
+        "1": {
+          "level_shift": 0.02417328642551305,
+          "shape_mismatch": 0.15891433419367282,
+          "empirical_fluctuation": 0.04055924695459579
+        },
+        "3": {
+          "level_shift": 0.00873734862409602,
+          "shape_mismatch": 0.15890018593963517,
+          "empirical_fluctuation": 0.04055924695459579
+        },
+        "7": {
+          "level_shift": 0.012120215362431743,
+          "shape_mismatch": 0.1589320288064442,
+          "empirical_fluctuation": 0.04055924695459579
+        },
+        "15": {
+          "level_shift": 0.009910675371545939,
+          "shape_mismatch": 0.15893394380002793,
+          "empirical_fluctuation": 0.04055924695459579
+        },
+        "31": {
+          "level_shift": 0.0064351883595821025,
+          "shape_mismatch": 0.1589336907918381,
+          "empirical_fluctuation": 0.04055924695459579
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.014245893837388704,
+        "shape_mismatch": 0.1589188438956629,
+        "empirical_fluctuation": 0.0405592469545958
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1048,
+      "alc": 0.22199936869557785,
+      "brier_by_budget": {
+        "0": 0.23770914246511318,
+        "1": 0.23211587004874912,
+        "3": 0.21525523820439774,
+        "7": 0.2300691164228199,
+        "15": 0.21133906440897465,
+        "31": 0.20472596632078227
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.04181736559961668,
+          "shape_mismatch": 0.16878306516376154,
+          "empirical_fluctuation": 0.02710871170173496
+        },
+        "1": {
+          "level_shift": 0.03622747352581244,
+          "shape_mismatch": 0.1687796848212017,
+          "empirical_fluctuation": 0.02710871170173496
+        },
+        "3": {
+          "level_shift": 0.019368308002624877,
+          "shape_mismatch": 0.1687782185000379,
+          "empirical_fluctuation": 0.02710871170173496
+        },
+        "7": {
+          "level_shift": 0.034155418648701016,
+          "shape_mismatch": 0.16880498607238392,
+          "empirical_fluctuation": 0.02710871170173496
+        },
+        "15": {
+          "level_shift": 0.015457132063809617,
+          "shape_mismatch": 0.1687732206434301,
+          "empirical_fluctuation": 0.02710871170173496
+        },
+        "31": {
+          "level_shift": 0.008834289199382816,
+          "shape_mismatch": 0.1687829654196645,
+          "empirical_fluctuation": 0.02710871170173496
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.02610683192808954,
+        "shape_mismatch": 0.16878382506575335,
+        "empirical_fluctuation": 0.027108711701734962
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    },
+    {
+      "seed": 1049,
+      "alc": 0.21663261011640778,
+      "brier_by_budget": {
+        "0": 0.22742814623352936,
+        "1": 0.2467370890103095,
+        "3": 0.22340179712601885,
+        "7": 0.20324744088473443,
+        "15": 0.19848536487769897,
+        "31": 0.1951545711330247
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.038353485747088925,
+          "shape_mismatch": 0.13492828602756599,
+          "empirical_fluctuation": 0.054146374458874456
+        },
+        "1": {
+          "level_shift": 0.0576650682099649,
+          "shape_mismatch": 0.13492564634147014,
+          "empirical_fluctuation": 0.054146374458874456
+        },
+        "3": {
+          "level_shift": 0.034309155554036394,
+          "shape_mismatch": 0.134946267113108,
+          "empirical_fluctuation": 0.054146374458874456
+        },
+        "7": {
+          "level_shift": 0.014171494133158255,
+          "shape_mismatch": 0.13492957229270172,
+          "empirical_fluctuation": 0.054146374458874456
+        },
+        "15": {
+          "level_shift": 0.009411514364177306,
+          "shape_mismatch": 0.1349274760546472,
+          "empirical_fluctuation": 0.054146374458874456
+        },
+        "31": {
+          "level_shift": 0.006086894037691977,
+          "shape_mismatch": 0.13492130263645827,
+          "empirical_fluctuation": 0.054146374458874456
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.027555484430745462,
+        "shape_mismatch": 0.13493075122678785,
+        "empirical_fluctuation": 0.054146374458874456
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    }
+  ],
+  "eligible_pair_count": 62,
+  "decomposition_alc": {
+    "level_shift": 0.02465953715121018,
+    "shape_mismatch": 0.129627142772382,
+    "empirical_fluctuation": 0.039649536446278166
+  },
+  "decomposition_by_budget": {
+    "0": {
+      "level_shift": 0.055771166358475066,
+      "shape_mismatch": 0.12961353541952533,
+      "empirical_fluctuation": 0.039649536446278166
+    },
+    "1": {
+      "level_shift": 0.038348328666075564,
+      "shape_mismatch": 0.12962557686129464,
+      "empirical_fluctuation": 0.039649536446278166
+    },
+    "3": {
+      "level_shift": 0.025567213856155947,
+      "shape_mismatch": 0.12963458023871666,
+      "empirical_fluctuation": 0.039649536446278166
+    },
+    "7": {
+      "level_shift": 0.01715854817589875,
+      "shape_mismatch": 0.12962864035774432,
+      "empirical_fluctuation": 0.039649536446278166
+    },
+    "15": {
+      "level_shift": 0.010735578905149187,
+      "shape_mismatch": 0.1296268824405057,
+      "empirical_fluctuation": 0.039649536446278166
+    },
+    "31": {
+      "level_shift": 0.007204865947067806,
+      "shape_mismatch": 0.12962653250777195,
+      "empirical_fluctuation": 0.039649536446278166
+    }
+  },
+  "prediction_timing": {
+    "calls": 151200,
+    "median_seconds": 0.0021141665056347847,
+    "maximum_seconds": 1.2483638330013491,
+    "mean_seconds": 0.008016916078323211,
+    "scope": "real full-content model.predict; excludes simulator deepcopy and coverage instrumentation"
+  },
+  "seconds": 1365.5548610420083,
+  "max_rss_mib": 782.859375,
+  "model_sha256": "2fd42da3a72fb7894f992d19b641987a27b6bbc681e4acaee407c94b646bd022"
+}

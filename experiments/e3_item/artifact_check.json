@@ -1,0 +1,22 @@
+{
+  "stdlib_imports": [
+    "json",
+    "math",
+    "re",
+    "zlib"
+  ],
+  "global_nonlocal_statements": 0,
+  "embedded_e2_weights_unchanged": true,
+  "zip_source_bytes_match": true,
+  "zip_members": [
+    "model.py",
+    "README.md"
+  ],
+  "model_sha256": "cd91dda61129858c120cb1233b1dc76e47f35f94c762fce5caf7ce83671b8bcf",
+  "zip_sha256": "df8c015af92a8bdbc424943b38585c01203c4970189ba721874da53e3184af3f",
+  "config": {
+    "shrinkage": 0.5,
+    "eta": 0.5,
+    "mode": "probability"
+  }
+}

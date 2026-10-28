@@ -1,0 +1,19 @@
+{
+  "started_utc": "2026-10-18T23:34:48+00:00",
+  "network_used": false,
+  "allowed_writes": [
+    "variants/e3_same_item.py",
+    "tools/train_e3.py",
+    "tests/test_e3.py",
+    "experiments/e3_item/",
+    "submission_e3/",
+    "dist/submission_e3.zip"
+  ],
+  "baseline_hashes": {
+    "submission_e2/model.py": "2fd42da3a72fb7894f992d19b641987a27b6bbc681e4acaee407c94b646bd022",
+    "submission_e1b/model.py": "baacb04dd6018d7bb38429bc8b2109be4b20646f8d9fcc0901bc9c674608d5a8",
+    "f1/simulate.py": "10337b716583e1cfb880f4af1c0e8d83b773b4d148b194421a3071fe32336eaf"
+  },
+  "maximum_parallel_experiment_processes": 1,
+  "test_fixture_redirect": "Existing test temporary paths ROOT and experiments/e1_tuning redirected into experiments/e3_item to honor write allowlist."
+}

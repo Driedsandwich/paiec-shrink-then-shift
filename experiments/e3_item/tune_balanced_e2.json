@@ -1,0 +1,189 @@
+{
+  "summary": {
+    "alc_mean": 0.198574461221647,
+    "alc_std": 0.0,
+    "brier_by_budget": {
+      "0": {
+        "mean": 0.23126859971688685,
+        "std": 0.0
+      },
+      "1": {
+        "mean": 0.21558002819678831,
+        "std": 0.0
+      },
+      "3": {
+        "mean": 0.19978695251809836,
+        "std": 0.0
+      },
+      "7": {
+        "mean": 0.18694147825603938,
+        "std": 0.0
+      },
+      "15": {
+        "mean": 0.18415869745475666,
+        "std": 0.0
+      },
+      "31": {
+        "mean": 0.1815416996482174,
+        "std": 0.0
+      }
+    }
+  },
+  "conditions": {
+    "data": "../_data/mdb",
+    "seed": 0,
+    "runs": 1,
+    "run_seed_rule": "seed + run_index (0-based)",
+    "pairs_strategy": "balanced",
+    "max_unique_subject_items": 1000,
+    "pair_selection": "seeded shuffle of eligible pairs before allocation",
+    "allocation_rule": "select up to floor(cap/80) pairs; start at 80, then round-robin to capacity",
+    "minimum_distinct_graded_items": 80,
+    "eligibility_before_cap": true,
+    "selected_pair_minimum_items": 80,
+    "acquisition_mode": "random",
+    "max_labels_per_pair": 31,
+    "budgets": [
+      0,
+      1,
+      3,
+      7,
+      15,
+      31
+    ],
+    "alc_weights": [
+      0.1,
+      0.2,
+      0.2,
+      0.2,
+      0.2,
+      0.1
+    ],
+    "split": "tune",
+    "holdout_fraction": 0.3,
+    "split_rule": "sha256(original benchmark_id) / 2**256 < holdout_fraction",
+    "release_years": [
+      "2025",
+      "2026"
+    ],
+    "benchmarks": "all",
+    "pair_order": "lexicographic (original benchmark_id, original subject_id)",
+    "synchronization": "advance every pair to checkpoint before any evaluation",
+    "odd_split": "floor(n/2) acquisition, ceil(n/2) evaluation",
+    "trial_selection": "one seeded uniform recorded row per acquisition item, fixed before hooks",
+    "ungraded_rows": "exclude; never treat missing outcomes as zero",
+    "exhaustion": "no forced reveals; report actual count and repeat evidence if exhausted",
+    "decomposition_cells": "item_id plus input (split by interactors if different)",
+    "prediction_cache": "distinct full input across all pairs, reset each checkpoint",
+    "runtime": "trusted in-process Python, no worker reset or timeout isolation",
+    "std_definition": "population standard deviation across run-level pair means (ddof=0)"
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "alc": 0.198574461221647,
+      "brier_by_budget": {
+        "0": 0.23126859971688685,
+        "1": 0.21558002819678831,
+        "3": 0.19978695251809836,
+        "7": 0.18694147825603938,
+        "15": 0.18415869745475666,
+        "31": 0.1815416996482174
+      },
+      "decomposition_by_budget": {
+        "0": {
+          "level_shift": 0.05712975377072926,
+          "shape_mismatch": 0.17413884594615758,
+          "empirical_fluctuation": 0.0
+        },
+        "1": {
+          "level_shift": 0.04144100388396842,
+          "shape_mismatch": 0.1741390243128199,
+          "empirical_fluctuation": 0.0
+        },
+        "3": {
+          "level_shift": 0.025660249017226067,
+          "shape_mismatch": 0.17412670350087228,
+          "empirical_fluctuation": 0.0
+        },
+        "7": {
+          "level_shift": 0.012809873323936004,
+          "shape_mismatch": 0.1741316049321034,
+          "empirical_fluctuation": 0.0
+        },
+        "15": {
+          "level_shift": 0.01004484039276223,
+          "shape_mismatch": 0.17411385706199445,
+          "empirical_fluctuation": 0.0
+        },
+        "31": {
+          "level_shift": 0.007426930428440701,
+          "shape_mismatch": 0.1741147692197767,
+          "empirical_fluctuation": 0.0
+        }
+      },
+      "decomposition_alc": {
+        "level_shift": 0.024446861743495543,
+        "shape_mismatch": 0.17412759947815143,
+        "empirical_fluctuation": 0.0
+      },
+      "pairs": 12,
+      "evaluation_prediction_calls_by_budget": {
+        "0": 504,
+        "1": 504,
+        "3": 504,
+        "7": 504,
+        "15": 504,
+        "31": 504
+      }
+    }
+  ],
+  "eligible_pair_count": 186,
+  "decomposition_alc": {
+    "level_shift": 0.024446861743495543,
+    "shape_mismatch": 0.17412759947815143,
+    "empirical_fluctuation": 0.0
+  },
+  "decomposition_by_budget": {
+    "0": {
+      "level_shift": 0.05712975377072926,
+      "shape_mismatch": 0.17413884594615758,
+      "empirical_fluctuation": 0.0
+    },
+    "1": {
+      "level_shift": 0.04144100388396842,
+      "shape_mismatch": 0.1741390243128199,
+      "empirical_fluctuation": 0.0
+    },
+    "3": {
+      "level_shift": 0.025660249017226067,
+      "shape_mismatch": 0.17412670350087228,
+      "empirical_fluctuation": 0.0
+    },
+    "7": {
+      "level_shift": 0.012809873323936004,
+      "shape_mismatch": 0.1741316049321034,
+      "empirical_fluctuation": 0.0
+    },
+    "15": {
+      "level_shift": 0.01004484039276223,
+      "shape_mismatch": 0.17411385706199445,
+      "empirical_fluctuation": 0.0
+    },
+    "31": {
+      "level_shift": 0.007426930428440701,
+      "shape_mismatch": 0.1741147692197767,
+      "empirical_fluctuation": 0.0
+    }
+  },
+  "prediction_timing": {
+    "calls": 3024,
+    "median_seconds": 0.0020141040004091337,
+    "maximum_seconds": 0.19261170798563398,
+    "mean_seconds": 0.005575431136007648,
+    "scope": "real full-content model.predict; excludes simulator deepcopy and coverage instrumentation"
+  },
+  "seconds": 19.12069695899845,
+  "max_rss_mib": 782.859375,
+  "model_sha256": "2fd42da3a72fb7894f992d19b641987a27b6bbc681e4acaee407c94b646bd022"
+}

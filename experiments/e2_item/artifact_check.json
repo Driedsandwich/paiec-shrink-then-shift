@@ -1,0 +1,21 @@
+{
+  "stdlib_imports": [
+    "json",
+    "math",
+    "re",
+    "zlib"
+  ],
+  "global_nonlocal_statements": 0,
+  "external_io_calls": 0,
+  "embedded_weights_match_json": true,
+  "zip_source_bytes_match": true,
+  "zip_members": [
+    "README.md",
+    "model.py"
+  ],
+  "model_sha256": "2fd42da3a72fb7894f992d19b641987a27b6bbc681e4acaee407c94b646bd022",
+  "zip_sha256": "babbdf86a47d68b1ba824e0903af8e6de44f28a661f33f1cc6e3696df5994cee",
+  "gamma": 1.0,
+  "features": 14,
+  "readme_tune_benchmarks": 16
+}

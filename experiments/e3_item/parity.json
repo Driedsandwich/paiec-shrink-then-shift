@@ -1,0 +1,12 @@
+[
+  {
+    "method": "E3",
+    "seed": 0,
+    "max_budget_brier_difference": 2.7755575615628914e-17
+  },
+  {
+    "method": "E2",
+    "seed": 0,
+    "max_budget_brier_difference": 2.7755575615628914e-17
+  }
+]

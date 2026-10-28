@@ -1,0 +1,12 @@
+{
+  "command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python -B tools/train_e3.py",
+  "parallel_command": "OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 PYTHONPATH=. .venv/bin/python -B experiments/e3_item/packed_driver.py",
+  "elapsed_seconds": 2562.686095,
+  "max_rss_mib": 782.859375,
+  "memory_scope": "maximum individual-process RSS, not the simultaneous sum or whole-machine usage",
+  "parallel_experiment_processes": 2,
+  "network_used": false,
+  "main_execution": "balanced E3/E2/E1b all 50 seeds complete; redundant packed phase interrupted via tool session Ctrl-C (exit 130); no partial run used",
+  "packed_execution": "separate driver completed E3 and E2, 50 seeds each, exit 0",
+  "log_note": "First two completed balanced entries are tune seed 0 replay parity; later entries are holdout 50 seeds. Final KeyboardInterrupt stops redundant work only."
+}
