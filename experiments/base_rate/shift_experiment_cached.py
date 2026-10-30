@@ -76,6 +76,14 @@ def states_from_cache(allocations, seed, obs, subjects_by_folder, content):
     return states
 
 
+def paired_summary(values, baseline):
+    """Summarize same-seed ALC differences (method minus E1)."""
+    d = [x - y for x, y in zip(values, baseline)]
+    return {"mean_diff": statistics.mean(d), "se": statistics.pstdev(d) / len(d) ** 0.5,
+            "se_sample": statistics.stdev(d) / len(d) ** 0.5 if len(d) > 1 else 0.0,
+            "wins": sum(x < 0 for x in d), "n": len(d)}
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", required=True); ap.add_argument("--rates", required=True)
@@ -128,9 +136,8 @@ def main():
                              "by_budget": {k: statistics.mean(r[k] for r in rows) for k in rows[0] if k.startswith("b")},
                              "per_seed_alc": [r["alc"] for r in rows]}
         if m != "E1":
-            d = [x - y for x, y in zip(out["methods"][m]["per_seed_alc"], out["methods"]["E1"]["per_seed_alc"])]
-            out["methods"][m]["vs_E1"] = {"mean_diff": statistics.mean(d), "se": statistics.pstdev(d) / len(d) ** 0.5,
-                                          "wins": sum(x < 0 for x in d), "n": len(d)}
+            out["methods"][m]["vs_E1"] = paired_summary(
+                out["methods"][m]["per_seed_alc"], out["methods"]["E1"]["per_seed_alc"])
     Path(a.out).write_text(json.dumps(out, indent=1))
     print(a.split, a.condition, "pairs", len(pairs), "rate", round(out["population_mean_rate_of_sampled_pairs"], 3),
           "load", out["load_seconds"], "sec", out["seconds"])
